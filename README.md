@@ -1,23 +1,23 @@
 # imgy
 Serverless Image Processing Service
 
-## TL;DR
+### TL;DR
 
 
-## Docs:
-
-TODO
-
-## Architecture
+### Docs:
 
 TODO
 
-## Requirements
+### Architecture
+
+TODO
+
+### Requirements
 
 - An AWS Account
 - Python 3.6
 
-## CONFIGURE!
+### CONFIGURE!
 
 At `zappa_settings.py` you SHALL change:
 
@@ -31,7 +31,7 @@ You MAY also configure:
 - `aws_region`: the AWS region to where you want to deploy the app
 -  `imgy_cache_max_age`: Define the cache Control header max-age in seconds/
 
-## Deploy
+### Deploy
 
 - `pip install zappa`
 - `deploy zappa api`
@@ -39,7 +39,7 @@ You MAY also configure:
 NOTE: you can also use `virtualenv` to install zappa.
 
 
-## Undeploy
+### Undeploy
 `undeploy zappa api`
 
 
