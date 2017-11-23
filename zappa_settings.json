@@ -2,12 +2,12 @@
     "api": {
         "app_function": "imgy.app.app",
         "aws_region": "us-west-2",
-        "profile_name": "test_xvep",
+        "profile_name": "",
         "project_name": "imgy",
         "runtime": "python3.6",
-        "s3_bucket": "zappa-1v0ihba17",
+        "s3_bucket": "",
         "slim_handler": false,
-        "imgy_bucket": "imgy-bucket",
+        "imgy_bucket": "",
         "imgy_cache_max_age": 300
     }
 }
