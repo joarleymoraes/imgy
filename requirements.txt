@@ -1,0 +1,4 @@
+flask
+zappa
+python-magic
+Wand
