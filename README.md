@@ -55,11 +55,6 @@ All transformationS below are independent of each other:
 - `w`: sets image width
 - `h`: sets image height
 - `fm`: sets image format, e.g.: png, jpeg, etc. All supported by ImageMagick.
-- `q`: sets compression quality, in case it's lossy format.
-
-
-
-
-
+- `q`: sets compression quality, in case it's lossy format. Value must be between 1 to 100.
 
 
