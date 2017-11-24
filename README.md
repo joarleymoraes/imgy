@@ -22,14 +22,18 @@ TODO
 At `zappa_settings.py` you SHALL change:
 
 - `profile_name`: which is the AWS CLI profile we will use for deployment. Make sure it has ADMIN permission.
-- `s3_bucket`: the S3 bucket where we will store our (zappa) deployment packages.
+- `s3_bucket`: the S3 bucket where we will store our (zappa) deployment packages. You don't need to create in AWS, Zappa will do it for you.
+
+You MAY also configure:
+- `aws_region`: the AWS region to where you want to deploy the app
+
+
+At `imgy/settings.py` you SHALL change:
 - `imgy_bucket`: the S3 bucket from where we will get input images.
 
 
 You MAY also configure:
-
-- `aws_region`: the AWS region to where you want to deploy the app
--  `imgy_cache_max_age`: Define the cache Control header max-age in seconds/
+-  `imgy_cache_max_age`: Define the cache Control header max-age in seconds.
 
 ### Deploy
 
@@ -45,8 +49,7 @@ NOTE: you can also use `virtualenv` to install zappa.
 
 # Demo
 
-TODO
-[https://52oj650tq7.execute-api.us-west-2.amazonaws.com/api/cloud.png?w=500&h=500&fm=jpg&q=50](https://52oj650tq7.execute-api.us-west-2.amazonaws.com/api/cloud.png?w=500&h=500&fm=jpg&q=50)
+[https://vk05slewjg.execute-api.us-west-2.amazonaws.com/api/cloud.png?w=100&h=100&fm=jpg&q=50](https://vk05slewjg.execute-api.us-west-2.amazonaws.com/api/cloud.png?w=100&h=100&fm=jpg&q=50)
 
 
 # Available Transformations

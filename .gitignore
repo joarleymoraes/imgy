@@ -100,4 +100,4 @@ ENV/
 # mypy
 .mypy_cache/
 
-demo_zappa_settings.json
+local

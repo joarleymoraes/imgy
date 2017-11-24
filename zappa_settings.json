@@ -2,12 +2,10 @@
     "api": {
         "app_function": "imgy.app.app",
         "aws_region": "us-west-2",
-        "profile_name": "",
         "project_name": "imgy",
         "runtime": "python3.6",
-        "s3_bucket": "",
         "slim_handler": false,
-        "imgy_bucket": "",
-        "imgy_cache_max_age": 300
+        "profile_name": "",
+        "s3_bucket": ""
     }
 }
