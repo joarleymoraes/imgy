@@ -40,14 +40,14 @@ You MAY also configure:
 
 ### Deploy
 
-- `pip install zappa`
-- `deploy zappa api`
-
-NOTE: you can also use `virtualenv` to install zappa.
+- `virtualenv -p python3.6 venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+- `deploy zappa`
 
 
 ### Undeploy
-`undeploy zappa api`
+`undeploy zappa`
 
 
 # Demo

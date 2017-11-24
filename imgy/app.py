@@ -4,14 +4,14 @@ import ntpath
 import tempfile
 import magic
 from flask import Flask, send_file, request, abort
-# from flask_cors import CORS
+from flask_cors import CORS
 from wand.image import Image
 from imgy.settings import AWS_REGION, BUCKET, CACHE_MAX_AGE, LOSSY_IMAGE_FMTS, DEFAULT_QUALITY_RATE
 from imgy.s3_helper import S3Helper
 
 app = Flask(__name__)
 # Adding CORS support
-# CORS(app)
+CORS(app)
 
 s3 = S3Helper(AWS_REGION)
 
