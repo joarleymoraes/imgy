@@ -3,6 +3,7 @@ Serverless Image Processing Service
 
 ### TL;DR
 
+![Deployment](https://raw.githubusercontent.com/joarleymoraes/imgy/master/docs/deploy.gif)
 
 ### Docs:
 
