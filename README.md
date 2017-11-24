@@ -5,6 +5,8 @@ Serverless Image Processing Service
 
 ![Deployment](https://raw.githubusercontent.com/joarleymoraes/imgy/master/docs/deploy.gif)
 
+![Demo](https://raw.githubusercontent.com/joarleymoraes/imgy/master/docs/demo.gif)
+
 ### Docs:
 
 TODO
