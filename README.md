@@ -10,7 +10,7 @@ TODO
 
 ### Architecture
 
-TODO
+![Architecture](https://raw.githubusercontent.com/joarleymoraes/imgy/master/docs/architecture.png)
 
 ### Requirements
 
