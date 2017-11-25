@@ -4,7 +4,7 @@ AWS_REGION = os.environ.get('AWS_REGION')
 
 BUCKET = "imgy-bucket"
 
-CACHE_MAX_AGE = 300
+CACHE_MAX_AGE = 3600
 
 DEFAULT_QUALITY_RATE = 80
 

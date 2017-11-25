@@ -4,8 +4,6 @@
         "aws_region": "us-west-2",
         "project_name": "imgy",
         "runtime": "python3.6",
-        "slim_handler": false,
-        "profile_name": "",
         "s3_bucket": ""
     }
 }

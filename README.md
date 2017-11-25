@@ -3,8 +3,6 @@ Serverless Image Processing Service
 
 ### TL;DR
 
-![Deployment](https://raw.githubusercontent.com/joarleymoraes/imgy/master/docs/deploy.gif)
-
 ![Demo](https://raw.githubusercontent.com/joarleymoraes/imgy/master/docs/demo.gif)
 
 ### Docs:
@@ -19,13 +17,16 @@ TODO
 
 - An AWS Account
 - Python 3.6
+- virtualenv
+- AWS CLI
 
 ### CONFIGURE!
 
 At `zappa_settings.py` you SHALL change:
 
-- `profile_name`: which is the AWS CLI profile we will use for deployment. Make sure it has ADMIN permission.
 - `s3_bucket`: the S3 bucket where we will store our (zappa) deployment packages. You don't need to create in AWS, Zappa will do it for you.
+
+NOTE: make sure the default AWS CLI profile has ADMIN permission.
 
 You MAY also configure:
 - `aws_region`: the AWS region to where you want to deploy the app
@@ -45,6 +46,12 @@ You MAY also configure:
 - `pip install -r requirements.txt`
 - `deploy zappa`
 
+### Adding CloudFront (optional)
+
+You may add a custom CloudFront distribution, which will add an effective caching layer to your service. Be aware that this step will take about 15-20 minutes to finish. At the end the CloudFront URL will be generated, use this instead of the API Gateways'.
+
+`./add_cloud_front.sh`
+
 
 ### Undeploy
 `undeploy zappa`
@@ -53,6 +60,10 @@ You MAY also configure:
 # Demo
 
 [https://vk05slewjg.execute-api.us-west-2.amazonaws.com/api/cloud.png?w=100&h=100&fm=jpg&q=50](https://vk05slewjg.execute-api.us-west-2.amazonaws.com/api/cloud.png?w=100&h=100&fm=jpg&q=50)
+
+CloudFront URL:
+
+
 
 
 # Available Transformations

@@ -30,6 +30,7 @@ def get_mime_type(file_path):
 def add_header(response):
     if response.status_code == 200:
         response.cache_control.max_age = CACHE_MAX_AGE
+        response.cache_control.public = True
     return response
 
 
@@ -94,8 +95,6 @@ def transform(s3_key):
     #
     ops = request.args.to_dict()
 
-    print(ops)
-
     img_filename = s3.download(BUCKET, s3_key)
 
     if img_filename:
@@ -112,7 +111,7 @@ def transform(s3_key):
         return send_file(
                     io.BytesIO(fp.read()),
                     attachment_filename=output_img,
-                    mimetype='image/jpg'
+                    mimetype=mime_type
                )
 
 

@@ -1,0 +1,111 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Add a CloudFront PoP for caching image responses.",
+  "Parameters": {
+    "ApiId": {
+      "Description": "API Gateway ID",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "ImgyCFDistribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Origins": [
+            {
+              "DomainName": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Ref": "ApiId"
+                    },
+                    ".execute-api.",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ".amazonaws.com"
+                  ]
+                ]
+              },
+              "Id": {
+                "Ref": "ApiId"
+              },
+              "OriginPath": "/api",
+              "CustomOriginConfig": {
+                "HTTPSPort": "443",
+                "OriginProtocolPolicy": "https-only",
+                "OriginSSLProtocols": [
+                  "TLSv1",
+                  "TLSv1.1",
+                  "TLSv1.2"
+                ]
+              }
+            }
+          ],
+          "Enabled": "true",
+          "HttpVersion": "http2",
+          "Comment": "Image Distribution",
+          "DefaultCacheBehavior": {
+            "AllowedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "TargetOriginId": {
+              "Ref": "ApiId"
+            },
+            "ForwardedValues": {
+              "QueryString": "false",
+              "Cookies": {
+                "Forward": "none"
+              }
+            },
+            "ViewerProtocolPolicy": "https-only"
+          },
+          "CustomErrorResponses": [
+            {
+              "ErrorCode": 500,
+              "ErrorCachingMinTTL": 10
+            },
+            {
+              "ErrorCode": 501,
+              "ErrorCachingMinTTL": 10
+            },
+            {
+              "ErrorCode": 502,
+              "ErrorCachingMinTTL": 10
+            },
+            {
+              "ErrorCode": 503,
+              "ErrorCachingMinTTL": 10
+            },
+            {
+              "ErrorCode": 504,
+              "ErrorCachingMinTTL": 10
+            }
+          ],
+          "PriceClass": "PriceClass_All"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "CloudFrontURL": {
+      "Description": "URL for new CloudFront distribution",
+      "Value": {
+        "Fn::Sub": [
+          "https://${Domain}",
+          {
+            "Domain": {
+              "Fn::GetAtt": [
+                "ImgyCFDistribution",
+                "DomainName"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
