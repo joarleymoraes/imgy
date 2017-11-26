@@ -2,7 +2,7 @@ import os
 
 AWS_REGION = os.environ.get('AWS_REGION')
 
-BUCKET = "imgy-bucket"
+BUCKET = ""
 
 CACHE_MAX_AGE = 3600
 

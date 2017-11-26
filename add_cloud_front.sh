@@ -5,6 +5,8 @@ if [ -z "$1" ]; then
   exit
 fi
 
-API_ID=$2
+API_ID=$1
 
-aws cloudformation deploy --stack-name imgy-cf-api --template-body file://cf_add_cloud_front.json --parameters ApiId=${API_ID}
+aws cloudformation create-stack --stack-name imgy-cf-api --template-body file://cf_add_cloud_front.json --parameters ParameterKey=ApiId,ParameterValue=${API_ID}
+aws cloudformation wait stack-create-complete --stack-name imgy-cf-api
+aws cloudformation describe-stacks --stack-name imgy-cf-api

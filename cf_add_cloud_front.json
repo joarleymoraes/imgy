@@ -56,7 +56,7 @@
               "Ref": "ApiId"
             },
             "ForwardedValues": {
-              "QueryString": "false",
+              "QueryString": "true",
               "Cookies": {
                 "Forward": "none"
               }
