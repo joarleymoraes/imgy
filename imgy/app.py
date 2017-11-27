@@ -80,7 +80,7 @@ def image_transform(filename, ops):
                 else:
                     q = DEFAULT_QUALITY_RATE
 
-                img.compression_quality = 99
+                img.compression_quality = q
 
             img.save(filename=output)
 
