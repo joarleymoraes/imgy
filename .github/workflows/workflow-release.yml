@@ -22,14 +22,19 @@ jobs:
         run: |
           echo ${{github.event.workflow_run.before}}
           echo ${{github.event.workflow_run.after}}
-          echo ${{github.event.workflow_run.pull_requests}}
+          echo ${{github.event.workflow_run.pull_requests[0].url}}
+          echo ${{github.event.workflow_run.pull_requests[0].head.sha}}
+          echo ${{github.event.workflow_run.pull_requests[0].base.sha}}
+          echo ${{github.event.workflow_run.pull_requests[-1].url}}
+          echo ${{github.event.workflow_run.pull_requests[-1].head.sha}}
+          echo ${{github.event.workflow_run.pull_requests[-1].base.sha}}
 
       - id: changes
         name: Check for changes on
         uses: dorny/paths-filter@v2
         with:
           # By default the `base` and `ref` is the default branch: main.
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.pull_requests[-1].head.sha }}
           base: production
           filters: |
             test:
