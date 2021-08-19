@@ -20,6 +20,3 @@ jobs:
           filters: |
             test:
               - 'docs/**'
-
-      - name: Set base branch
-        run: echo "Hello"
