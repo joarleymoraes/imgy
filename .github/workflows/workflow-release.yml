@@ -18,6 +18,12 @@ jobs:
         with:
           ref: production
 
+      - name: print context
+        run: |
+          echo ${{github.event.workflow_run.before}}
+          echo ${{github.event.workflow_run.after}}
+          echo ${{github.event.workflow_run.pull_requests}}
+
       - id: changes
         name: Check for changes on
         uses: dorny/paths-filter@v2
@@ -28,6 +34,3 @@ jobs:
           filters: |
             test:
               - 'docs/**'
-
-      - name: Set base branch
-        run: echo "Great"
