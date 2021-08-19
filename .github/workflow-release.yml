@@ -1,0 +1,33 @@
+name: Release Run
+
+on:
+  workflow_run:
+    workflows: ["Test Run"]
+    branches:
+      - production
+    types:
+      - completed
+
+
+jobs:
+  apply-migration:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: production
+
+      - id: changes
+        name: Check for changes on
+        uses: dorny/paths-filter@v2
+        with:
+          # By default the `base` and `ref` is the default branch: main.
+          ref: ${{ github.event.workflow_run.head_sha }}
+          base: production
+          filters: |
+            test:
+              - 'docs/**'
+
+      - name: Set base branch
+        run: echo "Great"
