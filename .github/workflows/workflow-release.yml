@@ -14,6 +14,12 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+        
       - uses: actions/checkout@v2
         with:
           ref: production
@@ -34,7 +40,7 @@ jobs:
         uses: dorny/paths-filter@v2
         with:
           # By default the `base` and `ref` is the default branch: main.
-          ref: ${{ github.event.workflow_run.pull_requests[-1].head.sha }}
+          ref: production
           base: production
           filters: |
             test:
